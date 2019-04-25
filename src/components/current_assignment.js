@@ -37,34 +37,34 @@ class CurrentAssignment extends Component {
     const { assignment } = this.props;
 
     return (
-        <Card className={classes.root}>
-          <CardHeader
-              title="Current Assignment"
-              subheader={assignment.title}
-          />
-          <CardMedia
-              className={classes.media}
-              image={assignment.image}
-              title={assignment.title}
-          />
-          <CardContent>
-            <ProgressBar activeStep={this.state.activeStep} steps={assignment.steps} />
-            <div className={classes.descriptionContainer}>
-              <p className={classes.description}>{assignment.description.long}</p>
-              <IconButton
-                  className={classnames(classes.expand, {
-                    [classes.expandOpen]: this.state.expanded,
-                  })}
-                  onClick={this.handleExpandClick}
-                  aria-expanded={this.state.expanded}
-                  aria-label="Show more"
-              >
-                <ExpandMoreIcon />
-              </IconButton>
-            </div>
-            {this.state.expanded ? <AssignmentStepper activeStep={this.state.activeStep} steps={assignment.steps} handleStepChange={this.handleStepChange} /> : null}
-          </CardContent>
-        </Card>
+      <Card className={classes.root}>
+        <CardHeader
+          title="Current Assignment"
+          subheader={assignment.title}
+        />
+        <CardMedia
+          className={classes.media}
+          image={assignment.image}
+          title={assignment.title}
+        />
+        <CardContent>
+          <ProgressBar activeStep={this.state.activeStep} steps={assignment.steps} />
+          <div className={classes.descriptionContainer}>
+            <p className={classes.description}>{assignment.description.long}</p>
+            <IconButton
+              className={classnames(classes.expand, {
+                [classes.expandOpen]: this.state.expanded,
+              })}
+              onClick={this.handleExpandClick}
+              aria-expanded={this.state.expanded}
+              aria-label="Show more"
+            >
+              <ExpandMoreIcon />
+            </IconButton>
+          </div>
+          {this.state.expanded ? <AssignmentStepper activeStep={this.state.activeStep} steps={assignment.steps} handleStepChange={this.handleStepChange} /> : null}
+        </CardContent>
+      </Card>
     );
   }
 }

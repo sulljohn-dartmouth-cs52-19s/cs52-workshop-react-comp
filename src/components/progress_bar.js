@@ -10,9 +10,9 @@ const ProgressBar = (props) => {
   const normalise = activeStep => (activeStep - MIN) * 100 / (MAX - MIN);
 
   return (
-      <React.Fragment>
-        <LinearProgress className={props.classes.progressBar} variant="determinate" value={normalise(props.activeStep)} />
-      </React.Fragment>
+    <React.Fragment>
+      <LinearProgress className={props.classes.progressBar} variant="determinate" value={normalise(props.activeStep)} />
+    </React.Fragment>
   );
 };
 

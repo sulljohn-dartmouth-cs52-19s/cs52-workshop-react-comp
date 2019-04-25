@@ -37,22 +37,22 @@ class AlertDialog extends React.Component {
     return (
       <div>
         <Fab
-            onClick={this.handleClickOpen}
-            id="button"
-            color="primary"
-            style={style}
-            size="large"
-            variant="extended"
+          onClick={this.handleClickOpen}
+          id="button"
+          color="primary"
+          style={style}
+          size="large"
+          variant="extended"
         >
           <CallIcon />Call Tim
         </Fab>
         <Dialog
-            open={this.state.open}
-            onClose={this.handleClose}
-            aria-labelledby="alert-dialog-title"
-            aria-describedby="alert-dialog-description"
+          open={this.state.open}
+          onClose={this.handleClose}
+          aria-labelledby="alert-dialog-title"
+          aria-describedby="alert-dialog-description"
         >
-          <DialogTitle id="alert-dialog-title">{"Need Help?"}</DialogTitle>
+          <DialogTitle id="alert-dialog-title">Need Help?</DialogTitle>
           <DialogContent>
             <DialogContentText id="alert-dialog-description">
               I would suggest calling him.

@@ -28,43 +28,43 @@ class AssignmentStepper extends Component {
     const { activeStep } = this.props;
 
     return (
-        <div>
-          <Stepper activeStep={activeStep} orientation="vertical">
-            {stepTitles.map((label, index) => (
-                <Step key={label}>
-                  <StepLabel>{label}</StepLabel>
-                  <StepContent>
-                    <Typography>{stepContent[index]}</Typography>
-                    <div>
-                      <div>
-                        <Button
-                            disabled={activeStep === 0}
-                            onClick={this.handleBack}
-                        >
+      <div>
+        <Stepper activeStep={activeStep} orientation="vertical">
+          {stepTitles.map((label, index) => (
+            <Step key={label}>
+              <StepLabel>{label}</StepLabel>
+              <StepContent>
+                <Typography>{stepContent[index]}</Typography>
+                <div>
+                  <div>
+                    <Button
+                      disabled={activeStep === 0}
+                      onClick={this.handleBack}
+                    >
                           Back
-                        </Button>
-                        <Button
-                            variant="contained"
-                            color="primary"
-                            onClick={this.handleNext}
-                        >
-                          {activeStep === this.props.steps.length - 1 ? 'Finish' : 'Next'}
-                        </Button>
-                      </div>
-                    </div>
-                  </StepContent>
-                </Step>
-            ))}
-          </Stepper>
-          {activeStep === this.props.steps.length && (
-              <Paper square elevation={0}>
-                <Typography>All steps completed - you&apos;re finished</Typography>
-                <Button onClick={this.handleReset}>
+                    </Button>
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      onClick={this.handleNext}
+                    >
+                      {activeStep === this.props.steps.length - 1 ? 'Finish' : 'Next'}
+                    </Button>
+                  </div>
+                </div>
+              </StepContent>
+            </Step>
+          ))}
+        </Stepper>
+        {activeStep === this.props.steps.length && (
+          <Paper square elevation={0}>
+            <Typography>All steps completed - you&apos;re finished</Typography>
+            <Button onClick={this.handleReset}>
                   Reset
-                </Button>
-              </Paper>
-          )}
-        </div>
+            </Button>
+          </Paper>
+        )}
+      </div>
     );
   }
 }

@@ -35,47 +35,47 @@ class OtherAssignment extends React.Component {
     const { assignment } = this.props;
 
     return (
-        <Card className={classes.card}>
-          <CardHeader
-              title={assignment.title}
-              subheader={assignment.date}
-          />
-          <CardMedia
-              className={classes.media}
-              image={assignment.image}
-              title={assignment.title}
-          />
+      <Card className={classes.card}>
+        <CardHeader
+          title={assignment.title}
+          subheader={assignment.date}
+        />
+        <CardMedia
+          className={classes.media}
+          image={assignment.image}
+          title={assignment.title}
+        />
+        <CardContent>
+          <Typography className={classes.short} component="p">
+            {assignment.description.short}
+          </Typography>
+        </CardContent>
+        <CardActions className={classes.actions} disableActionSpacing>
+          <IconButton aria-label="Add to favorites">
+            <FavoriteIcon />
+          </IconButton>
+          <Button size="small" href={assignment.link}>View</Button>
+          <Button size="small" onClick={this.setCurrentAssignment}>Set To Current</Button>
+          <IconButton
+            className={classnames(classes.expand, {
+              [classes.expandOpen]: this.state.expanded,
+            })}
+            onClick={this.handleExpandClick}
+            aria-expanded={this.state.expanded}
+            aria-label="Show more"
+          >
+            <ExpandMoreIcon />
+          </IconButton>
+        </CardActions>
+        <Collapse in={this.state.expanded} timeout="auto" unmountOnExit>
           <CardContent>
-            <Typography className={classes.short} component="p">
-              {assignment.description.short}
+            <Typography paragraph>Method:</Typography>
+            <Typography paragraph>
+              {assignment.description.long}
             </Typography>
           </CardContent>
-          <CardActions className={classes.actions} disableActionSpacing>
-            <IconButton aria-label="Add to favorites">
-              <FavoriteIcon />
-            </IconButton>
-            <Button size="small" href={assignment.link}>View</Button>
-            <Button size="small" onClick={this.setCurrentAssignment}>Set To Current</Button>
-            <IconButton
-                className={classnames(classes.expand, {
-                  [classes.expandOpen]: this.state.expanded,
-                })}
-                onClick={this.handleExpandClick}
-                aria-expanded={this.state.expanded}
-                aria-label="Show more"
-            >
-              <ExpandMoreIcon />
-            </IconButton>
-          </CardActions>
-          <Collapse in={this.state.expanded} timeout="auto" unmountOnExit>
-            <CardContent>
-              <Typography paragraph>Method:</Typography>
-              <Typography paragraph>
-                {assignment.description.long}
-              </Typography>
-            </CardContent>
-          </Collapse>
-        </Card>
+        </Collapse>
+      </Card>
     );
   }
 }
